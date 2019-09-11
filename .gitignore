@@ -1,0 +1,19 @@
+# Library Distributable
+dist
+
+# Coverage Report
+coverage
+
+# docma docs
+docs/website
+
+# Logs
+logs
+*.log
+*.log.*
+
+# Dependency directory
+node_modules
+
+# SSL certificates
+.ssl
