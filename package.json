@@ -1,14 +1,26 @@
 {
   "name": "use-url-params",
   "version": "1.0.0",
-  "description": "",
+  "description": "Hook that returns path variables based on the route",
   "main": "useUrlParams.js",
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "frontend",
+    "hook",
+    "rlite",
+    "router",
+    "tram-one",
+    "tram",
+    "one"
+  ],
+  "author": {
+    "name": "Jesse Jurman",
+    "email": "j.r.jurman@gmail.com",
+    "url": "https://github.com/jrjurman"
+  },
+  "license": "MIT",
   "dependencies": {
     "rlite-router": "^2.0.3"
   },
