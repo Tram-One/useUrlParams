@@ -1,6 +1,6 @@
 {
   "name": "use-url-params",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hook that returns path variables based on the route",
   "main": "useUrlParams.js",
   "scripts": {
@@ -21,6 +21,7 @@
     "url": "https://github.com/jrjurman"
   },
   "license": "MIT",
+  "repository": "https://github.com/Tram-One/use-url-params",
   "dependencies": {
     "rlite-router": "^2.0.3"
   },
