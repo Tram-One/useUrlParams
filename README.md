@@ -11,40 +11,20 @@ Rather than using XML templates to define routes, this method enables
 routing in javascript using a hook like result.
 
 ### Parameters
-`{Function} [getPath]` - function to return the current path, defaults to reading window.location.href
-
-
 `{String} [pattern]` - path for resolving path parameters (not required for query params)
 
 ### Returns
 `{Object|Boolean}` - object with params if path matches, otherwise returns false
 
+### setupUrlParams
+There is an underlying function that can return the hook with a non-standard routing method. This method takes in the following parameters:
+
+`{Function} [getPath]` - function to return the current path, defaults to reading window.location.href when using `useUrlParams`.
+
+It returns a new hook that will resolve params based on the new function.
+
 ## Examples
 Examples are based on it's usage in [Tram-One](https://tram-one.io), however they should work in any view framework.
-
-One caveat is that in the Tram-One examples, we default to assume that useUrlParams will be using the default `getPath`. If you need to define a custom `getPath`, you can use it like so:
-### Custom Get Path Example
-```javascript
-import useUrlParams from 'use-url-params'
-
-const customGetPath = () => window.location.port
-export default useUrlParams(customGetPath)
-```
-
-Otherwise, you'll want to use the hook with empty parens when calling it
-
-### Default Get Path Example
-```javascript
-import useUrlParams from 'use-url-params'
-
-const useUrlParamsHook = useUrlParams()
-const params = useUrlParamsHook('/hello')
-
-// OR
-
-const params = useUrlParams()('/hello')
-```
-
 
 ### Check Route Example
 ```javascript
@@ -70,4 +50,12 @@ export default () => {
   params.userId // => exampleUser
   params.session // => true
 }
+```
+
+### Custom Get Path Example
+```javascript
+import { setupUrlParams } from 'use-url-params'
+
+const customGetPath = () => window.location.port
+export default setupUrlParams(customGetPath)
 ```
