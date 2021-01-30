@@ -1,6 +1,3 @@
-## Complete Documentation in Tram-One
-https://tram-one.io/api/#Tram-One#useUrlParams
-
 ### Description
 Hook that returns path variables based on the route.
 Can return path parameters, query params, and more.
@@ -14,7 +11,7 @@ routing in javascript using a hook like result.
 `{String} [pattern]` - path for resolving path parameters (not required for query params)
 
 ### Returns
-`{Object|Boolean}` - object with params if path matches, otherwise returns false
+`{Object}` - object with `matches` key, and if it matched, path and query parameters
 
 ### setupUrlParams
 There is an underlying function that can return the hook with a non-standard routing method. This method takes in the following parameters:
@@ -24,7 +21,8 @@ There is an underlying function that can return the hook with a non-standard rou
 It returns a new hook that will resolve params based on the new function.
 
 ## Examples
-Examples are based on it's usage in [Tram-One](https://tram-one.io), however they should work in any view framework.
+Examples are based on it's usage in [Tram-One](https://tram-one.io/#use-url-params), however they should work in any view framework.
+
 
 ### Check Route Example
 ```javascript
@@ -34,8 +32,8 @@ import UserPage from './pages/user'
 import NotFoundPage from './pages/not-found'
 
 export default () => {
-  if (useUrlParams('/')) return HomePage();
-  if (useUrlParams('/user')) return UserPage();
+  if (useUrlParams('/').matches) return HomePage();
+  if (useUrlParams('/user').matches) return UserPage();
   return NotFoundPage();
 }
 ```

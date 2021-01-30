@@ -16,6 +16,6 @@ const defaultGetPath = () => window.location.href.replace(window.location.origin
  *
  * @param {String} [pattern] path for resolving path parameters (not required for query params)
  *
- * @returns {Object|Boolean} object with params if path matches, otherwise returns false
+ * @returns {Object} object with a `matches` key, and (if it matched) path and query parameters
  */
 module.exports = urlParamHook(defaultGetPath)
