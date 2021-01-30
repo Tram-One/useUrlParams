@@ -15,14 +15,14 @@ describe('setupUrlParams', () => {
       const mockGetPath = () => '/fake-id/list'
       const useUrlParamsWithMock = setupUrlParams(mockGetPath)
       const params = useUrlParamsWithMock('/:account/page')
-      expect(params).toBeFalsy()
+      expect(params.matches).toBeFalsy()
     })
 
     it('should match with matching path with no variables from function', () => {
       const mockGetPath = () => '/list'
       const useUrlParamsWithMock = setupUrlParams(mockGetPath)
       const params = useUrlParamsWithMock('/list')
-      expect(params).toEqual({})
+      expect(params).toEqual({ matches: true })
     })
 
     it('should return variables with no provided path', () => {
@@ -38,7 +38,7 @@ describe('setupUrlParams', () => {
       const mockGetPath = () => '/list'
       const useUrlParamsWithMock = setupUrlParams(mockGetPath)
       const params = useUrlParamsWithMock('/page')
-      expect(params).toBeFalsy()
+      expect(params.matches).toBeFalsy()
     })
   })
 })

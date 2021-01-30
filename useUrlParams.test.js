@@ -19,14 +19,14 @@ describe('useUrlParams', () => {
 			window.history.pushState({}, '', 'http://localhost/fake-id/list')
 
       const params = useUrlParams('/:account/page')
-      expect(params).toBeFalsy()
+      expect(params.matches).toBeFalsy()
     })
 
     it('should match with matching path with no variables from function', () => {
 			window.history.pushState({}, '', 'http://localhost/list')
 
       const params = useUrlParams('/list')
-      expect(params).toEqual({})
+      expect(params).toEqual({ matches: true })
     })
 
     it('should return variables with no provided path', () => {
@@ -42,7 +42,7 @@ describe('useUrlParams', () => {
 			window.history.pushState({}, '', 'http://localhost/list')
 
       const params = useUrlParams('/page')
-      expect(params).toBeFalsy()
+      expect(params.matches).toBeFalsy()
     })
   })
 })
