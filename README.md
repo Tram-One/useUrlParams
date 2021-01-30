@@ -11,7 +11,7 @@ routing in javascript using a hook like result.
 `{String} [pattern]` - path for resolving path parameters (not required for query params)
 
 ### Returns
-`{Object}` - object with `matches` key, and if it matched, path and query parameters
+`{Object}` - object with a `matches` key, and (if it matched) path and query parameters
 
 ### setupUrlParams
 There is an underlying function that can return the hook with a non-standard routing method. This method takes in the following parameters:
