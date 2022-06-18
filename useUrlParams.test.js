@@ -44,5 +44,19 @@ describe('useUrlParams', () => {
       const params = useUrlParams('/page')
       expect(params).toEqual({ matches: false })
     })
+
+    it('should match with path and hash', () => {
+			window.history.pushState({}, '', 'http://localhost/list#heading')
+
+      const params = useUrlParams('/list')
+      expect(params).toEqual({ matches: true, hash: 'heading' })
+    })
+
+    it('should return hash variable and search variables', () => {
+			window.history.pushState({}, '', 'http://localhost/list?test=2#link')
+
+      const params = useUrlParams()
+      expect(params).toEqual(expect.objectContaining({ test: '2', hash: 'link' }))
+    })
   })
 })

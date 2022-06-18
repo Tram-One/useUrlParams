@@ -1,9 +1,17 @@
 const urlParamHook = require('./urlParamHook')
 
-const defaultGetPath = () => window.location.href.replace(window.location.origin, '')
+const defaultGetPath = () => {
+	// extract hash as a parameter
+	const originalUrl = window.location.href.replace(window.location.origin, '')
+	const [urlWithoutHash, hash] = originalUrl.split('#')
+	const urlHasParam = urlWithoutHash.includes('?')
+	const hashParameter = hash !== undefined ? (urlHasParam ? `&hash=${hash}` : `?hash=${hash}`) : ''
+	const urlWithHashAsParam = `${urlWithoutHash}${hashParameter}`
+	return urlWithHashAsParam
+}
 
 /**
- * @see https://tram-one.io/api/#Tram-One#useUrlParams
+ * @see https://tram-one.io/#use-url-params
  *
  * @description
  * Hook that returns path variables based on the route.
