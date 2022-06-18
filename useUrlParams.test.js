@@ -1,10 +1,6 @@
 const useUrlParams = require('./useUrlParams')
 
 describe('useUrlParams', () => {
-	beforeEach(() => {
-		window.history.pushState({}, '', 'http://localhost/')
-	})
-
   describe('with default getPath function', () => {
     it('should match with matching path from function', () => {
 			window.history.pushState({}, '', 'http://localhost/fake-id/list')
