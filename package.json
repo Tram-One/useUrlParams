@@ -1,6 +1,6 @@
 {
   "name": "use-url-params",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Hook that returns path variables based on the route",
   "main": "./index.js",
   "scripts": {
